@@ -11,18 +11,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120825175121) do
+ActiveRecord::Schema.define(:version => 20120825180318) do
+
+  create_table "comments", :force => true do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "tickets", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "end_user_id"
-    t.integer  "assigned_to_id"
-    t.string   "assigned_to_type"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.integer  "assignable_id"
+    t.string   "assignable_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
-  add_index "tickets", ["assigned_to_id", "assigned_to_type"], :name => "index_tickets_on_assigned_to_id_and_assigned_to_type"
+  add_index "tickets", ["assignable_id", "assignable_type"], :name => "index_tickets_on_assignable_id_and_assignable_type"
+
+  create_table "users", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

@@ -4,10 +4,10 @@ class CreateTickets < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.integer :end_user_id
-      t.belongs_to :assigned_to, polymorphic: true
+      t.belongs_to :assignable, polymorphic: true
 
       t.timestamps
     end
-    add_index :tickets, [:assigned_to_id,:assigned_to_type]
+    add_index :tickets, [:assignable_id,:assignable_type]
   end
 end
