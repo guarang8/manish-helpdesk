@@ -41,8 +41,8 @@ ManishHelpdesk::Application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :domain               => 'mail.google.com',
-    :user_name            => 'manish.gauranga@gmail.com',
-    :password             => 'hare$krishna711889',
+    :user_name            => 'your-email-address-here',
+    :password             => 'your-password-here',
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
 end
