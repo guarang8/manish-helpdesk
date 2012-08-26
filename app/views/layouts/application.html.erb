@@ -11,6 +11,12 @@
 		<a href="/tickets">Tickets</a>
 		<a href="#">Reports</a>
 	</nav>
+	<% if member_signed_in? %>
+		<li><%= link_to "Logout", destroy_member_session_path, :method => :delete %></li>
+	<% else %>
+		<li><%= link_to "Login", new_member_session_path %></li>
+	<% end %>
+
 	<% if flash[:notice] %>
 		<div id="notice"><%= flash[:notice] %></div>
 	<% end %>
