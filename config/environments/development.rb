@@ -34,4 +34,15 @@ ManishHelpdesk::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  #Mailer config
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'mail.google.com',
+    :user_name            => 'manish.gauranga@gmail.com',
+    :password             => 'hare$krishna711889',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  }
 end
