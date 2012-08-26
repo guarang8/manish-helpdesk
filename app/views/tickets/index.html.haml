@@ -1,0 +1,7 @@
+%h1
+  Tickets
+  %h1
+    #tickets
+      - @tickets.each do |ticket|
+        = link_to ticket.title, ticket_path(ticket)
+        

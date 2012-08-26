@@ -1,4 +1,7 @@
 ManishHelpdesk::Application.routes.draw do
+
+  resources :tickets, :only => [:index, :show,:update]
+  resources :comments, :only => [:new, :create]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

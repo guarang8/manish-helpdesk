@@ -7,8 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<nav>
+		<a href="/tickets">Tickets</a>
+		<a href="#">Reports</a>
+	</nav>
+	<% if flash[:notice] %>
+		<div id="notice"><%= flash[:notice] %></div>
+	<% end %>
 
 <%= yield %>
-
+<%= debug(params) if Rails.env.development? %>
 </body>
 </html>

@@ -1,0 +1,27 @@
+%h3 Assign To:
+= form_for @ticket do |ticket_form|
+	= ticket_form.fields_for @user do |user_fields|
+		User: #{user_fields.text_field :first_name}
+		%br
+	= ticket_form.submit
+
+%h3= @ticket.title
+= simple_format @ticket.body
+= @ticket.created_at
+= simple_format @ticket.end_user_id
+= simple_format @ticket.assignable_type
+%p Comments
+- @ticket.comments.each do |comment|
+	%ul
+		%li
+			= comment.body
+			%nbsp by 
+			= @author
+			= time_ago_in_words(@ticket.created_at)
+			%nbsp ago
+
+= form_for @ticket do |ticket_form|
+	= ticket_form.fields_for @comment do |comment_fields|
+		Comment: #{comment_fields.text_field :body}
+		%br
+	= ticket_form.submit
